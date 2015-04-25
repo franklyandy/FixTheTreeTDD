@@ -8,6 +8,10 @@ class Tree
     @height = 0
     @alive = true
   end
+
+  def age!
+    @age += 1
+  end
 end
 
 class AppleTree

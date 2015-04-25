@@ -27,6 +27,11 @@ describe Tree do
 
   describe '#age!' do
     it 'should add 1 year each time it is called' do
+      expect(subject.age).to be 0
+      (1..3).each do |expected_age|
+        subject.age!
+        expect(subject.age).to be expected_age
+      end
     end
   end
 end

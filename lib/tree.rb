@@ -1,6 +1,7 @@
 class NoApplesError < StandardError; end
 
 class Tree
+  attr_reader :height, :age, :alive
 end
 
 class AppleTree

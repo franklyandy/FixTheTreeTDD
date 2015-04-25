@@ -2,6 +2,12 @@ class NoApplesError < StandardError; end
 
 class Tree
   attr_reader :height, :age, :alive
+
+  def initialize
+    @age = 0
+    @height = 0
+    @alive = true
+  end
 end
 
 class AppleTree

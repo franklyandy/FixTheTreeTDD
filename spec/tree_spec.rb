@@ -13,6 +13,22 @@ describe Tree do
       expect(described_class.method_defined? "#{attribute}=").to be false
     end
   end
+
+  defaults = { age: 0, height: 0, alive: true }
+  defaults.each_pair do |attribute, expected_value|
+    describe "##{attribute}" do
+      it "should default to #{expected_value}" do
+        expect(subject.send attribute).to be expected_value
+      end
+    end
+  end
+  describe 'default values' do
+  end
+
+  describe '#age!' do
+    it 'should add 1 year each time it is called' do
+    end
+  end
 end
 
 describe 'Fruit' do

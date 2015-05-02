@@ -53,6 +53,26 @@ describe FruitTree do
       it { expect(result).to be false }
     end
   end
+
+  describe '.age!' do
+    before { allow(subject).to receive(:try_bearing_fruit!) }
+    before { age.times { subject.age! } }
+    let(:any_fruit?) { subject.any_fruit? }
+
+    context 'is less than three years old' do
+      let(:age) { 2 }
+      it 'cannot bear fruit' do
+        expect(subject).not_to have_received(:try_bearing_fruit!)
+      end
+    end
+
+    context 'is at least three years old' do
+      let(:age) { 3 }
+      it 'could bear fruit' do
+        expect(subject).to have_received(:try_bearing_fruit!)
+      end
+    end
+  end
 end
 
 describe AppleTree do

@@ -19,18 +19,28 @@ class FruitTree < Tree
 
   def initialize
     @fruits = []
+    super
   end
 
   def any_fruit?
     !@fruits.empty?
   end
+
+  def age!
+    super
+    try_bearing_fruit! if @age >= 3
+  end
+
+  private
+    def try_bearing_fruit!
+      rand(0..10).times do
+        @fruits << Fruit.new
+      end
+    end
 end
 
 class AppleTree < FruitTree
-  attr_reader :height, :age, :apples, :alive
-
-  def age!
-  end
+  attr_reader :apples
 
   def add_apples
   end

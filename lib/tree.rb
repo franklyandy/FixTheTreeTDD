@@ -14,6 +14,18 @@ class Tree
   end
 end
 
+class FruitTree < Tree
+  attr_reader :fruits
+
+  def initialize
+    @fruits = []
+  end
+
+  def any_fruit?
+    !@fruits.empty?
+  end
+end
+
 class AppleTree
   attr_reader :height, :age, :apples, :alive
 

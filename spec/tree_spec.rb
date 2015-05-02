@@ -22,8 +22,6 @@ describe Tree do
       end
     end
   end
-  describe 'default values' do
-  end
 
   describe '#age!' do
     it 'should add 1 year each time it is called' do
@@ -36,8 +34,29 @@ describe Tree do
   end
 end
 
-describe 'Fruit' do
+describe FruitTree do
+  it 'should be a Tree' do
+    expect(subject.is_a? Tree).to be true
+  end
+
+  describe '#any_fruit?' do
+    before { subject.instance_variable_set("@fruits", fruits) }
+    let(:result) { subject.any_fruit? }
+
+    context 'it has fruits' do
+      let(:fruits) { [{fruit: :apple}] }
+      it { expect(result).to be true }
+    end
+
+    context 'is does not have any fruits' do
+      let(:fruits) { [] }
+      it { expect(result).to be false }
+    end
+  end
 end
 
-describe 'Apple' do
-end
+# describe 'Fruit' do
+# end
+
+# describe 'Apple' do
+# end

@@ -26,11 +26,8 @@ class FruitTree < Tree
   end
 end
 
-class AppleTree
+class AppleTree < FruitTree
   attr_reader :height, :age, :apples, :alive
-
-  def initialize
-  end
 
   def age!
   end
@@ -39,6 +36,7 @@ class AppleTree
   end
 
   def any_apples?
+    any_fruit?
   end
 
   def pick_an_apple!

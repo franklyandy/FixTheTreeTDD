@@ -55,6 +55,16 @@ describe FruitTree do
   end
 end
 
+describe AppleTree do
+  it { expect(subject.is_a? FruitTree).to be true }
+
+  describe '#any_apples?' do
+    before { expect(subject).to receive(:any_fruit?).and_return :called }
+    let(:result) { subject.any_apples? }
+    it { expect(result).to be :called }
+  end
+end
+
 # describe 'Fruit' do
 # end
 
